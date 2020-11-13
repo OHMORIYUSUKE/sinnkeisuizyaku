@@ -1,5 +1,4 @@
 #field{
- width: auto;
  margin-left: 15%;
  margin-right: 15%;
 }
@@ -21,4 +20,16 @@ h1{
 p{
     margin: 0px;
     text-align: center;
+}
+@media screen and (max-width: 900px) {
+    #field{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .card{
+        margin-inline-start: 2px;
+        width: 70px;
+        height: 110px;
+        line-height: 120px;
+    }
 }
