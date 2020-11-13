@@ -48,6 +48,9 @@ function judge(){
             document.getElementById(mekuri[0]).style.backgroundColor="red";
             document.getElementById(mekuri[1]).style.backgroundColor="red";
 
+            document.getElementById(i).textContent=cards[mekuri[0]];
+            document.getElementById(i).textContent=cards[mekuri[1]];
+
             document.getElementById(mekuri[0]).style.pointerEvents="none";
             document.getElementById(mekuri[1]).style.pointerEvents="none";
 
@@ -58,7 +61,7 @@ function judge(){
     }else{
         //不正解
         
-        setTimeout(uragaeshi, 1000);
+        setTimeout(uragaeshi, 900);
         
     }
 }
