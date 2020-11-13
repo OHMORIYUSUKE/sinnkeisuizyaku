@@ -1,0 +1,14 @@
+#field{
+ width: 700px;
+}
+.card{
+    width: 70px;
+    height: 120px;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    font-size: 30px;
+    margin: 8px;
+    float: left;
+    text-align: center;
+    line-height: 120px;
+}
