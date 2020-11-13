@@ -1,2 +1,1 @@
 # sinnkeisuizyaku
-# sinnkeisuizyaku
