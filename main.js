@@ -6,7 +6,9 @@ let cards=[
 let hanntei=["hoge","fuga"];
 let mekuri=["hoge","fuga"];
 let mekuriCount=0;
+let scoer=0;
 
+document.getElementById("scoer").textContent=scoer;
 
 var uragaeshi = function(){
     document.getElementById(mekuri[0]).textContent="";
@@ -17,15 +19,21 @@ function judge(){
     if(mekuri[0]==mekuri[1]){
         window.alert("❕エラー❕\n同じカードです。");
         document.getElementById(mekuri[0]).textContent="";
+        scoer--;
+        document.getElementById("scoer").textContent=scoer;
     }
     else if(hanntei[0]===hanntei[1] && mekuri[0]!=mekuri[1]){
         window.alert("正解");
             mekuriCount++;
+            scoer++;
+            document.getElementById("scoer").textContent=scoer;
         if(mekuriCount==cards.length/2){
-            window.alert("終了");
+            window.alert("終了\n最終スコア\n"+scoer+"pt");
         }
     }else{
         window.alert("不正解 二枚目のカードは\n"+hanntei[1]+"\nです。");
+        scoer--;
+        document.getElementById("scoer").textContent=scoer;
         return uragaeshi();
     }
 }

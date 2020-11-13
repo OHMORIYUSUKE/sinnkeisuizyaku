@@ -1,5 +1,7 @@
 #field{
- width: 700px;
+ width: auto;
+ margin-left: 15%;
+ margin-right: 15%;
 }
 .card{
     width: 70px;
@@ -11,4 +13,12 @@
     float: left;
     text-align: center;
     line-height: 120px;
+}
+h1{
+    margin: 0px;
+    text-align: center;
+}
+p{
+    margin: 0px;
+    text-align: center;
 }
