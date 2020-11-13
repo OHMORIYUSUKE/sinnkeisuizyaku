@@ -58,7 +58,7 @@ function judge(){
     }else{
         //不正解
         
-        setTimeout(uragaeshi, 1300);
+        setTimeout(uragaeshi, 1000);
         
     }
 }
