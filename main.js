@@ -27,6 +27,9 @@ function judge(){
             mekuriCount++;
             scoer++;
             document.getElementById("scoer").textContent=scoer;
+            
+            document.getElementById(mekuri[0]).style.backgroundColor="red";
+            document.getElementById(mekuri[1]).style.backgroundColor="red";
         if(mekuriCount==cards.length/2){
             window.alert("終了\n最終スコア\n"+scoer+"pt");
         }
