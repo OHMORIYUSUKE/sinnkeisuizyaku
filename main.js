@@ -11,25 +11,14 @@ let mekuriCount=0;
 document.getElementById("scoer").textContent=scoer;
 
 let finish = function(){
-    window.alert(`終了!
-スコアは${scoer}です。`);
+    window.alert("終了❕❕\n最終スコアは"+scoer+"pt");
 }
 
 let uragaeshi = function(){
-
-        for(let i=0;i<cards.length;i++){
-            if(document.getElementById(i).style.backgroundColor!=="red" && document.getElementById(i).textContent==cards[i]){
-                document.getElementById(i).textContent="";
-
-                --scoer;
-                document.getElementById("scoer").textContent=scoer;
-                //console.log(scoer);
-                // hanntei=["hoge","fuga"];
-                // mekuri=["hoge","fuga"];
-            }else if(document.getElementById(i).style.backgroundColor==="red"){
-                document.getElementById(i).textContent=cards[i];
-            }
-        }
+    
+        document.getElementById(mekuri[0]).textContent="";
+        document.getElementById(mekuri[1]).textContent="";
+        document.getElementById("field").style.pointerEvents="visible";
   }
 
 function judge(){
@@ -37,8 +26,9 @@ function judge(){
     if(mekuri[0]==mekuri[1]){
         window.alert("❕エラー❕\n同じカードです。");
         document.getElementById(mekuri[0]).textContent="";
-        --scoer;
+
         document.getElementById("scoer").textContent=scoer;
+        console.log("スコア"+scoer);
     }
     else if(hanntei[0]==hanntei[1] && mekuri[0]!=mekuri[1]){
         //window.alert("正解");
@@ -48,11 +38,10 @@ function judge(){
             document.getElementById(mekuri[0]).style.backgroundColor="red";
             document.getElementById(mekuri[1]).style.backgroundColor="red";
 
-            document.getElementById(i).textContent=cards[mekuri[0]];
-            document.getElementById(i).textContent=cards[mekuri[1]];
-
             document.getElementById(mekuri[0]).style.pointerEvents="none";
             document.getElementById(mekuri[1]).style.pointerEvents="none";
+
+            console.log("スコア"+scoer);
 
             mekuriCount=mekuriCount+2;
             if(mekuriCount==cards.length){
@@ -60,8 +49,11 @@ function judge(){
             }
     }else{
         //不正解
-        
+        scoer=scoer-1;
+        document.getElementById("field").style.pointerEvents="none";
+        document.getElementById("scoer").textContent=scoer;
         setTimeout(uragaeshi, 900);
+        console.log("スコア"+scoer);
         
     }
 }
@@ -98,8 +90,7 @@ function click(e){
 }
 //---------------------------------------------------------
 let field = document.getElementById("field");
-console.log("バグを見つけてください。お願いします。");
-console.log("at click (main.js:64)at HTMLDivElement.click (main.js:86)は原因が分かりませんでした。")
+
 
 //乱数を作る
 function rand(min,max){
