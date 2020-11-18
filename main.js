@@ -1,6 +1,6 @@
 let cards=[
-    "A","2","3","4","5","6","7","8","9","10","J","Q","K",
-    "A","2","3","4","5","6","7","8","9","10","J","Q","K",
+    "A","2","3",
+    "A","2","3",
 ];
 
 let hanntei=["hoge","fuga"];
@@ -12,16 +12,28 @@ let missCount2=0;
 let time = 0;
 
 window.alert("準備はいい？");
+/**********************************タイマー */
+var testTimer;
 
-  var countup = function(){
-    console.log(time++);
-    document.getElementById("time").textContent=time;
-  } 
-  setInterval(countup, 1000);
+function startTimer(){
+testTimer=setInterval(function(){
+//繰り返し処理させたいコード
+document.getElementById("time").textContent=time;
+time=time+1;
+} , 1000);
+}
+startTimer();
+//stopTimer();
+
+//*******************************************: */
+function stopTimer(){
+clearInterval(testTimer);
+}
 
 //document.getElementById("scoer").textContent=scoer;
 
 let finish = function(){
+    
     scoer=scoer-time;
     window.alert("終了!!\n****結果****\n経過時間"+time+" 秒\n間違えた回数"+missCount+" 回\n同じカードをクリックした回数"+missCount2+" 回\n\nスコア"+scoer+" pt");
     
@@ -35,9 +47,10 @@ let finish = function(){
      
         }
         else {
-     
+            
             //「false」の処理
             window.alert("また遊んでね！");
+            
         }
 
 }
@@ -75,7 +88,8 @@ function judge(){
 
             mekuriCount=mekuriCount+2;
             if(mekuriCount==cards.length){
-                setTimeout(finish,1);
+                stopTimer();
+                setTimeout(finish,10);
             }
     }else{
         //不正解
