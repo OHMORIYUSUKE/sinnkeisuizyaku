@@ -7,11 +7,39 @@ let hanntei=["hoge","fuga"];
 let mekuri=["hoge","fuga"];
 let scoer=0;
 let mekuriCount=0;
+let missCount=0;
+let missCount2=0;
+let time = 0;
 
-document.getElementById("scoer").textContent=scoer;
+window.alert("準備はいい？");
+
+  var countup = function(){
+    console.log(time++);
+    document.getElementById("time").textContent=time;
+  } 
+  setInterval(countup, 1000);
+
+//document.getElementById("scoer").textContent=scoer;
 
 let finish = function(){
-    window.alert("終了❕❕\n最終スコアは"+scoer+"pt");
+    scoer=scoer-time;
+    window.alert("終了!!\n****結果****\n経過時間"+time+" 秒\n間違えた回数"+missCount+" 回\n同じカードをクリックした回数"+missCount2+" 回\n\nスコア"+scoer+" pt");
+    
+    
+        let result = window.confirm('もう一度チャレンジする？');
+        
+        if( result ) {
+     
+            //「true」の処理
+            location.reload();
+     
+        }
+        else {
+     
+            //「false」の処理
+            window.alert("また遊んでね！");
+        }
+
 }
 
 let uragaeshi = function(){
@@ -27,13 +55,15 @@ function judge(){
         window.alert("❕エラー❕\n同じカードです。");
         document.getElementById(mekuri[0]).textContent="";
 
-        document.getElementById("scoer").textContent=scoer;
+        missCount2=missCount2+1;
+        scoer=scoer-1;
+        //document.getElementById("scoer").textContent=scoer;
         console.log("スコア"+scoer);
     }
     else if(hanntei[0]==hanntei[1] && mekuri[0]!=mekuri[1]){
         //window.alert("正解");
             scoer=scoer+20;
-            document.getElementById("scoer").textContent=scoer;
+            //document.getElementById("scoer").textContent=scoer;
 
             document.getElementById(mekuri[0]).style.backgroundColor="red";
             document.getElementById(mekuri[1]).style.backgroundColor="red";
@@ -45,13 +75,14 @@ function judge(){
 
             mekuriCount=mekuriCount+2;
             if(mekuriCount==cards.length){
-                setTimeout(finish,600);
+                setTimeout(finish,1);
             }
     }else{
         //不正解
+        missCount=missCount+1;
         scoer=scoer-1;
         document.getElementById("field").style.pointerEvents="none";
-        document.getElementById("scoer").textContent=scoer;
+        //document.getElementById("scoer").textContent=scoer;
         setTimeout(uragaeshi, 900);
         console.log("スコア"+scoer);
         
