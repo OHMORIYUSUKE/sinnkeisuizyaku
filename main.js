@@ -11,6 +11,17 @@ let missCount=0;
 let missCount2=0;
 let time = 0;
 
+var Error = {
+    title: "警告",
+    text: "同じカードです",
+    icon: "warning", // warning, info, error
+    timer: 1000, // 1秒後に自動的にアラートを閉じる
+    buttons: false,
+
+  }
+
+
+
 window.alert("準備はいい？");
 /**********************************タイマー */
 var testTimer;
@@ -65,7 +76,9 @@ let uragaeshi = function(){
 function judge(){
 
     if(mekuri[0]==mekuri[1]){
-        window.alert("❕エラー❕\n同じカードです。");
+        //window.alert("❕エラー❕\n同じカードです。");
+        //swal("エラー", "同じカードです", "warning");
+        swal(Error)
         document.getElementById(mekuri[0]).textContent="";
 
         missCount2=missCount2+1;
